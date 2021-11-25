@@ -1,4 +1,5 @@
 import React from "react";
+import { BsSearch } from 'react-icons/bs';
 
 export const Header = () => {
   return (
@@ -9,8 +10,9 @@ export const Header = () => {
           ecommerce
         </a>
       </div>
-      <div>
-          <input type="search"></input>
+      <div className="hidden md:flex relative bg-yellow-500 w-5/12">
+          <input type="search" className=" w-11/12"></input>
+          <BsSearch className=" text-black absolute right-0 "/>
       </div>
       <div className="p-5 uppercase ">
         <a href="#" className="pr-2 hover:text-red-500">Cart</a>
