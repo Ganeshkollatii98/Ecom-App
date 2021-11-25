@@ -1,11 +1,14 @@
 
 import './index.css';
-import { HomePage } from './Pages/HomePage';
+import { Header } from './Pages/Header';
+
 function App() {
   return (
-    <div className="App bg-red-500">
-    <HomePage/>
+    
+    <div className="h-screen bg-red-200">
+      <Header/>
     </div>
+    
   );
 }
 
