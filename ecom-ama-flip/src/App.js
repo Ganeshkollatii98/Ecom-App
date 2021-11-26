@@ -1,7 +1,7 @@
 
 import './index.css';
-import { Footer } from './Pages/Footer';
-import { Header } from './Pages/Header';
+import { Footer } from './Components/Footer';
+import { Header } from './Components/Header';
 
 function App() {
   return (
