@@ -1,6 +1,5 @@
-import StarIcon from "@mui/icons-material/Star";
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import StarHalfIcon from "@mui/icons-material/StarHalf";
+import Rating from "./Rating";
 import React from "react";
 function Product() {
   return (
@@ -31,13 +30,7 @@ function Product() {
             Price:<b> 28000.0</b>
           </span>
         </div>
-        <div className="cursor-pointer pl-2 pb-3 text-yellow-500 product-ratings ">
-          <StarIcon style={{ fontSize: "1.3rem" }} />
-          <StarIcon style={{ fontSize: "1.3rem" }} />
-          <StarIcon style={{ fontSize: "1.3rem" }} />
-          <StarIcon style={{ fontSize: "1.3rem" }} />
-          <StarHalfIcon style={{ fontSize: "1.3rem" }} />
-        </div>
+        <Rating/>
       </div>
     </div>
   );
