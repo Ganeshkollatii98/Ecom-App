@@ -1,9 +1,10 @@
 import React from 'react'
 
-export default function ProductScreen() {
+export default function ProductScreen(props) {
+     const prd=props.location.path;
     return (
-        <div>
-            <div>prodcuct Screen</div>
+        <div className="h-screen">
+            <div>prodcuct Screen {prd}</div>
         </div>
     )
 }

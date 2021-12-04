@@ -3,7 +3,6 @@ import './index.css';
 import {Route,BrowserRouter,Routes} from "react-router-dom";
 import { Footer } from './Components/Footer';
 import { Header } from './Components/Header';
-import Main from './Components/Main';
 import HomeScreen from './Screens/HomeScreen';
 import ProductScreen from './Screens/ProductScreen';
 
