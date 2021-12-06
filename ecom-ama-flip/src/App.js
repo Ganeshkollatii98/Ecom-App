@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
     <div className="w-screen bg-gray-300 font-nunito">
       <Header/>
-     
+        
         <Routes>
         <Route path="/product/:id" element={<ProductScreen/>} ></Route>
         <Route path="/" element={<HomeScreen/>} exact></Route>
