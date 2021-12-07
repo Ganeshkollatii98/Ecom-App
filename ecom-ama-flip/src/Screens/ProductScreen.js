@@ -47,7 +47,7 @@ export default function ProductScreen(props) {
                </p>
           </div>
           <div className=" ml-6 mt-6 ">
-          <span className=" text-xl align-top text-bold">QTY: </span> <input type="number" min="1" max="100"  style={{width:"4rem",height:"2rem",paddingLeft:"1rem",color: "black" ,fontSize:"1rem"  ,borderRadius:"2rem" ,border:"1px solid blue"}}  />
+          <span className=" text-xl align-top text-bold">QTY: </span> <input type="number"  min="1" max="100"  style={{width:"4rem",height:"2rem",paddingLeft:"1rem",color: "black" ,fontSize:"1rem"  ,borderRadius:"2rem" ,border:"1px solid blue"}}  />
           </div>
           <div className=" ml-6  h-40 flex flex-col sm:flex-none md:block ">
             <button type="submit" className="border-2 rounded-3xl  bg-blue-700 capitalize  text-white pl-3 pr-3 p-2 hover:bg-blue-800"> add to cart <ShoppingCartIcon className="pl-1 text-white"/></button>
