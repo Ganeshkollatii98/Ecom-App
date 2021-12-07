@@ -6,7 +6,7 @@ export const Header = () => {
     <header className="h-16 font-semibold  text-white bg-gray-800 flex flex-wrap justify-between items-center">
       <div className="pl-4 ">
         <a href={`/`} className="uppercase hover:text-red-500">
-          
+      
           ecommerce
         </a>
       </div>

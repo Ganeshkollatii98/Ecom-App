@@ -1,5 +1,5 @@
 import express from "express";
-import data from "./data"
+import data from "./data.js";
 const app=express();
 
 // reading data from data.js
@@ -11,5 +11,5 @@ app.get("/",(req,res)=>{
 });
 
 app.listen(5000,()=>{
-   console.log("server is running at https://localhost:5000")
+   console.log("server is run at https://localhost:5000")
 })
