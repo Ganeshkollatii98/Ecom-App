@@ -1,9 +1,17 @@
 import React from 'react'
-import RefreshIcon from '@mui/icons-material/Refresh';
-export default function LoadingBox() {
+
+export default function MessageBox(props) {
     return (
-        <div>
-            <p>message</p>
-        </div>
+        <div className="flex flex-col h-screen items-center relative top-10">
+                <div className="w-11/12 ">
+                   
+                        <div className="flex justify-between items-center p-3 border border-red-200 rounded shadow-xl bg-red-200" >
+                            <p className="font-bold text-red-800 "> 
+                            {props.err}</p>
+                        </div>
+      
+                </div>
+
+            </div>
     )
 }
