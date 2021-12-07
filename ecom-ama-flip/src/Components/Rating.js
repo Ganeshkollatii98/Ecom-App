@@ -5,7 +5,7 @@ import StarOutlineOutlinedIcon from '@mui/icons-material/StarOutlineOutlined';
 export default function Rating(props) {
     const {rating,numReviews} =props.product;
     return (
-        <div className="flex cursor-pointer pl-2 mt-3 pb-3  product-ratings ">
+        <div className="flex cursor-pointer pl-2  pb-3  product-ratings ">
         <div className="text-yellow-500 pr-1">
          
          {rating>=1 ? <StarIcon  style={{ fontSize: "1.3rem" }} /> : rating>=0.5 ?<StarHalfIcon style={{ fontSize: "1.3rem" }} />:<StarOutlineOutlinedIcon style={{ fontSize: "1.3rem" }} />}
@@ -22,7 +22,7 @@ export default function Rating(props) {
         <StarHalfIcon style={{ fontSize: "1.3rem" }} />
          <StarOutlineOutlinedIcon style={{ fontSize: "1.3rem" }} /> */}
         </div>
-        <a href="#"><span className=" hover:text-gray-900">{numReviews} Reviews</span></a>
+        <a href="#"><span className=" font-bold hover:text-gray-900">{rating}({numReviews})</span></a>
       </div>
     )
 }
