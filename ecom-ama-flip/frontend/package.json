@@ -1,5 +1,6 @@
 {
   "name": "ecom-ama-flip",
+  "proxy": "http://127.0.0.1:5000",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -15,6 +16,7 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "awesome-react-icons": "^1.4.8",
+    "axios": "^0.24.0",
     "express": "^4.17.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -25,8 +27,7 @@
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    
-    "start":"craco start",
+    "start": "craco start",
     "build": "craco build",
     "test": "craco test",
     "eject": "react-scripts eject"
