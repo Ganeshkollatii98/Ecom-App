@@ -19,8 +19,8 @@ export default function ProductScreen(props) {
         </Link>
       </div>
       <div class="product-container ml-4 flex flex-col  sm:flex-row  md:flex-row mb-12">
-        <div className="product-image ml-6 sm:ml-2 w-10/12 h-10/12 md:w-5/12 h-4/12 sm:w-7/12  ">
-          <img src={product.image} alt="product-image"></img>
+        <div className=" product-image ml-6 sm:ml-2 w-10/12 md:w-5/12  sm:w-7/12  ">
+          <img className="shadow-lg" src={product.image} alt="product-image"></img>
         </div>
         <div className="product-info sm:ml-5 md:ml-10 w-10/12 md:w-6/12 sm:w-4/12">
           <div className=" ml-6 mt-2">
@@ -46,11 +46,12 @@ export default function ProductScreen(props) {
                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                </p>
           </div>
-          <div className=" ml-6 mt-6 h-40">
- 
-            
+          <div className=" ml-6 mt-6 ">
+          <span className=" text-xl align-top text-bold">QTY: </span> <input type="number" min="1" max="100"  style={{width:"4rem",height:"2rem",paddingLeft:"1rem",color: "black" ,fontSize:"1rem"  ,borderRadius:"2rem" ,border:"1px solid blue"}}  />
+          </div>
+          <div className=" ml-6  h-40 flex flex-col sm:flex-none md:block ">
             <button type="submit" className="border-2 rounded-3xl  bg-blue-700 capitalize  text-white pl-3 pr-3 p-2 hover:bg-blue-800"> add to cart <ShoppingCartIcon className="pl-1 text-white"/></button>
-            <button type="submit" className="border-2 rounded-3xl  bg-red-500 capitalize  text-white pl-4 pr-4 p-2 hover:bg-red-600"> wish list <FavoriteIcon/> </button>
+            <button type="submit" className="mt-2 lg:mt-0 s border-2 rounded-3xl  bg-red-500 capitalize  text-white pl-4 pr-4 p-2 hover:bg-red-600"> wish list <FavoriteIcon/> </button>
           </div>
         </div>
       </div>

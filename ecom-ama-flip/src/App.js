@@ -17,7 +17,7 @@ function App() {
         <Route path="/" element={<HomeScreen/>} exact></Route>
         </Routes>
    
-      <Footer/>
+      <Footer />
      
     </div>
     </BrowserRouter>
