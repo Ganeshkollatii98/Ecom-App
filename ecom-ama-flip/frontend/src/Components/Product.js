@@ -1,9 +1,17 @@
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import React, { useState } from 'react'
 import Rating from "./Rating";
-import React from "react";
+
 function Product(props) {
    const {product}=props;
+   const [heartIcon,setHeartIcon] = useState(false);
    
+   var handleHeartIcon=()=>{
+     setHeartIcon(true)
+  
+   }
+
   return (
     <div className="product relative  m-6 w-4/12 md:w-3/12 h-8/12  bg-white rounded-md shadow-2xl self-start">
 
@@ -17,7 +25,10 @@ function Product(props) {
       </div>
       <div className="product_info ">
         <div className="AddToFavorite absolute right-4 cursor-pointer">
-          <FavoriteBorderIcon style={{ fontSize: "1.3rem" }} className="text-gray-500"/> 
+         {
+           !heartIcon ? <FavoriteBorderIcon onClick={()=>handleHeartIcon()} style={{ fontSize: "1.3rem" }} className="text-gray-500" /> : <FavoriteIcon style={{ fontSize: "1.3rem" }} className="text-red-500" />   
+         }
+          
         </div>
         
           <h2 className="text-xl uppercase pl-2 mt-2 bold"><a href="#">{product.category}</a></h2>
