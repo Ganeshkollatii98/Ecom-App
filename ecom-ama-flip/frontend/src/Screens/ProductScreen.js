@@ -1,16 +1,23 @@
 import React from "react";
+import {useDispatch} from "react-redux";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link, useNavigate, useParams } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import data from "../data";
 import Rating from "../Components/Rating.js";
+import LoadingBox from '../Components/LoadingBox';
+import MessageBox from '../Components/MessageBox';
+
 export default function ProductScreen(props) {
   const params = useParams();
-  const product = data.products.find((p) => p._id === params.id);
-
+  const dispatch=useDispatch();
+  const productList=useSelector((state)=>state.productsList);
+  const {loading,error,products}=ProductsList;
   return (
-    <div className="p-6 w-full min-h-screen  ">
-      <div className="pb-4">
+     <>
+      {loading ? (<LoadingBox/>) : error ?( <MessageBox err={error}/>) : (
+        <div className="p-6 w-full min-h-screen  ">
+        <div className="pb-4">
         <Link
           to="/"
           className=" rounded-md p-1  w-32 bg-blue-900 uppercase border-1  font-bold text-white"
@@ -55,6 +62,9 @@ export default function ProductScreen(props) {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      )}
+      </>
+    
   );
 }
