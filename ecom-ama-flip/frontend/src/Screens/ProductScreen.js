@@ -1,26 +1,34 @@
-import React,{useEffect} from "react";
+import React,{useEffect, useState} from "react";
 import {useDispatch,useSelector} from "react-redux";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams ,useNavigate } from "react-router-dom";
+import { useHistory } from 'react-router';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-
+// import history from 'history';
 import Rating from "../Components/Rating.js";
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
 import { detailsProduct } from "../Actions/ProductActions.js";
 
 export default function ProductScreen(props) {
-  const { id } = useParams();
-  
+  const { id} = useParams();
+  const history = useNavigate();
   const dispatch=useDispatch();
   const productDetails=useSelector((state)=>state.ProductDetails);
-  console.log("product details",productDetails.products)
+  
   const productId=id;
+  const [qty, setQty] = useState(1);
   const {loading,error,product}=productDetails;
 
   useEffect(() => {
       dispatch(detailsProduct(productId));
   }, [dispatch,productId])
+
+ const addToCartHandler =()=>{
+          
+     history.push(`/cart/${productId}?qty=${qty}`)
+           console.log("AddToCart Button CLicked")
+ }
   return (
      <>
       {loading ? (<LoadingBox/>) : error ?( <MessageBox err={error}/>) : (
@@ -35,7 +43,7 @@ export default function ProductScreen(props) {
       </div>
       <div class="product-container ml-4 flex flex-col  sm:flex-row  md:flex-row mb-12">
         <div className=" product-image ml-6 sm:ml-2 w-10/12 md:w-5/12  sm:w-7/12  ">
-          <img className="shadow-lg" src={product.image} alt="product-image"></img>
+          <img className="shadow-lg" alt="product-image" src={product.image} ></img>
         </div>
         <div className="product-info sm:ml-5 md:ml-10 w-10/12 md:w-6/12 sm:w-4/12">
           <div className=" ml-6 mt-2">
@@ -44,8 +52,12 @@ export default function ProductScreen(props) {
             </h2>
             <p className="text-black">{product.name}</p>
           </div>
-          <div className="Rating ml-4 mt-1">
+          <div className="Rating ml-4 ">
             <Rating product={product} />
+          </div>
+          <div className="Rating ml-6 mt-1">
+             <span className="text-black-700 font-bold text-xl mr-2">Status:</span>{product.countInStock!==0 ? <span className="text-green-700 font-bold text-xl uppercase">in Stock </span> : <span className="text-red-600 font-bold text-xl uppercase">out of stock</span>}
+             
           </div>
           <div className="Prices ml-6 mt-0 flex flex-col">
             <p className="font-extrabold ">
@@ -62,10 +74,17 @@ export default function ProductScreen(props) {
                </p>
           </div>
           <div className=" ml-6 mt-6 ">
-          <span className=" text-xl align-top text-bold">QTY: </span> <input type="number"  min="1" max="100"  style={{width:"4rem",height:"2rem",paddingLeft:"1rem",color: "black" ,fontSize:"1rem"  ,borderRadius:"2rem" ,border:"1px solid blue"}}  />
+          <span className=" text-xl align-top font-bold text-black hover:text-blue-700">QTY: </span> 
+          {/* <input type="number"  min="1" max="100"  style={{width:"4rem",height:"2rem",paddingLeft:"1rem",color: "black" ,fontSize:"1rem"  ,borderRadius:"2rem" ,border:"1px solid blue"}}  /> */}
+            <select className="mb-4 w-12 border-2 border-black hover:border-2 hover:border-blue-700" value={qty} onChange={(e)=>setQty(e.target.value)}>
+                 {[...Array(product.countInStock).keys()].map((c)=>(
+                   <option key={c+1} value={c+1}>{c+1}</option>
+                 ))}
+            </select>
           </div>
           <div className=" ml-6  h-40 flex flex-col sm:flex-none md:block ">
-            <button type="submit" className="border-2 rounded-3xl  bg-blue-700 capitalize  text-white pl-3 pr-3 p-2 hover:bg-blue-800"> add to cart <ShoppingCartIcon className="pl-1 text-white"/></button>
+          {/* <Link to={`/cart/${productId}?qty=${qty}`}> </Link>*/}
+           <button onClick={addToCartHandler} type="submit" className="border-2 rounded-3xl  bg-blue-700 capitalize  text-white pl-3 pr-3 p-2 hover:bg-blue-800"> add to cart <ShoppingCartIcon className="pl-1 text-white"/></button>
             <button type="submit" className="mt-2 lg:mt-0 s border-2 rounded-3xl  bg-red-500 capitalize  text-white pl-4 pr-4 p-2 hover:bg-red-600"> wish list <FavoriteIcon/> </button>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import {PRODUCT_LIST_REQUEST,PRODUCT_LIST_SUCCESS,PRODUCT_LIST_FAIL,PRODUCT_DETAILS_FAIL,PRODUCT_DETAILS_REQUEST,PRODUCT_DETAILS_SUCCESS} from "../contants/productContaints";
+import {PRODUCT_LIST_FAIL,PRODUCT_DETAILS_REQUEST,PRODUCT_DETAILS_SUCCESS} from "../contants/productContaints";
 
 export const ProductDetailsReducers=(state={products:{},loading:true},action)=>{
      switch (action.type) {
