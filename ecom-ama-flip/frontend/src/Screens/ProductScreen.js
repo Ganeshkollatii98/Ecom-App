@@ -1,18 +1,26 @@
-import React from "react";
-import {useDispatch} from "react-redux";
+import React,{useEffect} from "react";
+import {useDispatch,useSelector} from "react-redux";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import data from "../data";
+
 import Rating from "../Components/Rating.js";
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox';
+import { detailsProduct } from "../Actions/ProductActions.js";
 
 export default function ProductScreen(props) {
-  const params = useParams();
+  const { id } = useParams();
+  
   const dispatch=useDispatch();
-  const productList=useSelector((state)=>state.productsList);
-  const {loading,error,products}=ProductsList;
+  const productDetails=useSelector((state)=>state.ProductDetails);
+  console.log("product details",productDetails.products)
+  const productId=id;
+  const {loading,error,product}=productDetails;
+
+  useEffect(() => {
+      dispatch(detailsProduct(productId));
+  }, [dispatch,productId])
   return (
      <>
       {loading ? (<LoadingBox/>) : error ?( <MessageBox err={error}/>) : (

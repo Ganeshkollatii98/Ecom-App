@@ -1,15 +1,15 @@
 import React, { useEffect} from 'react'
 import {useSelector,useDispatch} from "react-redux";
-import axios from 'axios';
+// import axios from 'axios';
 import Product from '../Components/Product'
-import data from "../data";
+// import data from "../data";
 import LoadingBox from '../Components/LoadingBox';
 import MessageBox from '../Components/MessageBox'
 import {listProducts} from "../Actions/ProductActions"
 export default function HomeScreen() {
     const dispatch = useDispatch();
     const productList=useSelector((state)=>state.ProductsList);
-    console.log(productList)
+    // console.log(productList)
     const {loading,error,products}=productList;
     
      useEffect(() => {
